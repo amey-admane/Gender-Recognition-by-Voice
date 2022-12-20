@@ -1,0 +1,306 @@
+{% extends "nav.html" %}
+
+
+{% block title %} {{type}} {% endblock %}
+
+{% block content %}
+
+    <main>
+        <section class="header container">
+            <div>
+                <h1>{{type}}</h1>
+                <h4></h4>
+            </div>
+        </section>
+    </main>
+
+
+
+
+    <section class="info"> 
+        <p>
+            {{model_info}}
+            <!-- K-Nearest Neighbour is one of the simplest Machine Learning algorithms based on Supervised Learning technique.
+            K-NN algorithm assumes the similarity between the new case/data and available cases and put the new case into the category that is most similar to the available categories.
+            K-NN algorithm stores all the available data and classifies a new data point based on the similarity. This means when new data appears then it can be easily classified into a well suite category by using K- NN algorithm.
+            K-NN algorithm can be used for Regression as well as for Classification but mostly it is used for the Classification problems.
+            K-NN is a non-parametric algorithm, which means it does not make any assumption on underlying data.
+            It is also called a lazy learner algorithm because it does not learn from the training set immediately instead it stores the dataset and at the time of classification, it performs an action on the dataset. -->
+        </p>
+    </section>
+
+
+
+    <section class="feature">
+        <p>
+            <h1>Feature Selection</h1>&nbsp;<br><br>
+            <form action="" method="post">
+                <!-- <fieldset>
+                  {% for option in options %}
+                  <input type="checkbox" name="a" value="{{ option }}" id="a">{{ option }}
+                  {% endfor %}
+                </fieldset>
+                <button class="btn">Predict Model</button> -->
+
+                <div class="container_for_checkbox">
+                    <div class="row">
+                      <div class="col-12">
+                        <table class="table table-bordered">
+                          <thead>
+                            <tr>
+                              <th scope="col" colspan="7">Select One feature for univariate and Two features for bivariate Analysis</th>
+                            
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <!-- <td>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" value = "Select All" class="custom-control-input" id="customCheck1 " name = "customCheck1" checked>
+                                    <label class="custom-control-label" for="customCheck1">Select All</label>
+                                </div>
+                              </td> -->
+                          
+                              <td>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" value = "meanfreq" id="customCheck1 " name = "customCheck1" checked>
+                                    <label class="custom-control-label" for="customCheck1">meanfreq</label>
+                                </div>
+                              </td>
+                          
+                              <td>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" value = "sd" id="customCheck1 " name = "customCheck1" checked>
+                                    <label class="custom-control-label" for="customCheck1">sd</label>
+                                </div>
+                              </td>
+                          
+                              <td>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" value = "median" id="customCheck1 " name = "customCheck1" checked>
+                                    <label class="custom-control-label" for="customCheck1">median</label>
+                                </div>
+                              </td>
+                          
+                              <td>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" value = "Q25" id="customCheck1 " name = "customCheck1" checked>
+                                    <label class="custom-control-label" for="customCheck1">Q25</label>
+                                </div>
+                              </td>
+                              <td>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" value = "Q75" id="customCheck1 " name = "customCheck1" checked>
+                                    <label class="custom-control-label" for="customCheck1">Q75</label>
+                                </div>
+                              </td>
+                              <td>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" value = "IQR" id="customCheck1 " name = "customCheck1" checked>
+                                    <label class="custom-control-label" for="customCheck1">IQR</label>
+                                </div>
+                              </td>
+                          
+                          
+                            </tr>
+                            <tr>
+                              <td>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" value = "skew" id="customCheck1 " name = "customCheck1">
+                                    <label class="custom-control-label" for="customCheck1">skew</label>
+                                </div>
+                              </td>
+                          
+                              <td>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" value = "kurt" id="customCheck1 " name = "customCheck1">
+                                    <label class="custom-control-label" for="customCheck1">kurt</label>
+                                </div>
+                              </td>
+                              <td>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" value = "sp.ent" id="customCheck1 " name = "customCheck1">
+                                    <label class="custom-control-label" for="customCheck1">sp.ent</label>
+                                </div>
+                              </td>
+                              <td>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" value = "sfm" id="customCheck1 " name = "customCheck1">
+                                    <label class="custom-control-label" for="customCheck1">sfm</label>
+                                </div>
+                              </td>
+                              <td>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" value = "mode" id="customCheck1 " name = "customCheck1">
+                                    <label class="custom-control-label" for="customCheck1">mode</label>
+                                </div>
+                              </td>
+                              <td>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" value = "centroid" id="customCheck1 " name = "customCheck1">
+                                    <label class="custom-control-label" for="customCheck1">centroid</label>
+                                </div>
+                              </td>
+                              <td>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" value = "meanfun" id="customCheck1 " name = "customCheck1">
+                                    <label class="custom-control-label" for="customCheck1">meanfun</label>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" value = "minfun" id="customCheck1" name = "customCheck1">
+                                    <label class="custom-control-label" for="customCheck3">minfun</label>
+                                </div>
+                              </td>
+                          
+                              <td>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" value = "maxfun" id="customCheck1 " name = "customCheck1">
+                                    <label class="custom-control-label" for="customCheck1">maxfun</label>
+                                </div>
+                              </td>
+                              <td>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" value = "meandom" id="customCheck1 " name = "customCheck1">
+                                    <label class="custom-control-label" for="customCheck1">meandom</label>
+                                </div>
+                              </td>
+                              <td>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" value = "mindom" id="customCheck1 " name = "customCheck1">
+                                    <label class="custom-control-label" for="customCheck1">mindom</label>
+                                </div>
+                              </td>
+                              <td>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" value = "maxdom" id="customCheck1 " name = "customCheck1">
+                                    <label class="custom-control-label" for="customCheck1">maxdom</label>
+                                </div>
+                              </td>
+                              <td>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input"  value = "dfrange" id="customCheck1 " name = "customCheck1">
+                                    <label class="custom-control-label" for="customCheck1">dfrange</label>
+                                </div>
+                              </td>
+                              <td>
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" value = "modindx" id="customCheck1 " name = "customCheck1">
+                                    <label class="custom-control-label" for="customCheck1">ModIndx</label>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+
+                  <button class="btn">Plot </button>
+              </form>
+          
+            <!-- <div>
+                <button class="btn">More Info</button>
+            </div> -->
+        </p>
+    </section>
+
+
+    <section class="display">
+        {% if show == "show" %}
+        <p>Accuracy : {{score1}}</p>
+        <p>Precision : {{score2}}</p>
+        <p>F1 score : {{score3}}</p>
+        <p>Recall : {{score4}}</p>
+        <p>Auc : {{auc_value}}</p>
+        {% else %}
+        <p></p>
+        {% endif %}
+   
+    </section>
+
+
+    <section class="images" style="text-align: center; margin-left: -8%;">
+        
+
+
+        {% if show == "donotshow" %}
+        <!-- 1
+        <img src="https://pnp.github.io/sp-dev-fx-controls-react/assets/DoughnutChart.png">
+        <img src="https://miro.medium.com/max/1224/1*LoMpZBZDyKUJSP-YQPrMAA.jpeg"> -->
+        {% else %}
+
+        {% if type == "Bivariate" %}
+            <h2 style="text-align:center; margin:1% 0 3% 7%; justify-content: center;"> {{type}} plot for {{feature_a}} and {{feature_b}}</h3>
+
+          {% else %}
+
+            <h2 style="text-align:center; margin:1% 0 3% 7%; justify-content: center;"> {{type}} plot for {{feature_a}} </h3>
+
+          {% endif %}
+        <img src="data:image/png;base64,{{ img1 }}" alt=""  >
+        <!-- <img src="/static/images/R1.png" alt=""  >
+        <img src="/static/images/R2.png" alt="" >
+        <img src="/static/images/R3.png" alt=""  >
+        <img src="/static/images/R4.png" alt="" > -->
+         
+        {% endif %}
+    </section>
+    <!-- <script src="app.js"></script> -->
+
+
+<script>
+
+window.addEventListener('resize', function(){
+    addRequiredClass();
+})
+
+
+function addRequiredClass() {
+    if (window.innerWidth < 860) {
+        document.body.classList.add('mobile')
+    } else {
+        document.body.classList.remove('mobile') 
+    }
+}
+
+window.onload = addRequiredClass
+
+let hamburger = document.querySelector('.hamburger')
+let mobileNav = document.querySelector('.nav-list')
+
+let bars = document.querySelectorAll('.hamburger span')
+
+let isActive = false
+
+hamburger.addEventListener('click', function() {
+    mobileNav.classList.toggle('open')
+    if(!isActive) {
+        bars[0].style.transform = 'rotate(45deg)'
+        bars[1].style.opacity = '0'
+        bars[2].style.transform = 'rotate(-45deg)'
+        isActive = true
+    } else {
+        bars[0].style.transform = 'rotate(0deg)'
+        bars[1].style.opacity = '1'
+        bars[2].style.transform = 'rotate(0deg)'
+        isActive = false
+    }
+    
+
+})
+
+
+var inputs = document.getElementsByTagName('input');
+
+for (var i=0; i<inputs.length; i++)  {
+  if (inputs[i].type == 'checkbox')   {
+    inputs[i].checked = false;
+  }
+}
+</script>
+
+{% endblock %}
